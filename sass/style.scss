@@ -1,0 +1,302 @@
+@import 'colors';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: $bg-color;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1400px;
+}
+
+hr {
+	opacity: 0.3;
+	height: 1px;
+}
+
+//nav
+.nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	&__title {
+		display: none;
+		margin: 0.5em;
+		font-size: 4.5rem;
+		color: $font-color;
+		font-weight: 200;
+		color: $main;
+
+		&--active {
+			display: block;
+		}
+	}
+
+	&__search {
+		display: none;
+		width: 0;
+		margin: 1.7em 0;
+		background-color: $gray;
+		border: none;
+		border-radius: 8px;
+		color: $font-color;
+		font-size: 1.5rem;
+
+		&--active {
+			display: block;
+			animation: show 0.3s forwards;
+			padding: 1.05em 3em;
+		}
+
+		&::placeholder {
+			font-size: 1.6rem;
+			color: $font-color;
+			opacity: 1;
+		}
+
+		&:focus {
+			outline: none;
+			background-color: $font-color;
+			caret-color: $gray;
+			color: $gray;
+		}
+
+		&:focus::placeholder {
+			color: $gray;
+		}
+	}
+
+	.fa-xmark {
+		font-size: 4rem;
+		color: $main;
+	}
+
+	.icon {
+		display: none;
+		cursor: pointer;
+
+		&--active {
+			display: block;
+		}
+	}
+}
+
+@keyframes show {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 50%;
+	}
+}
+
+@keyframes hide {
+	from {
+		width: 50%;
+	}
+
+	to {
+		width: 0;
+	}
+}
+
+//tools
+.tools {
+	&__box {
+		display: none;
+		padding: 1.3em 2em;
+		margin: 5em 5em;
+		border-radius: 10px;
+		border: 1px solid transparent;
+		transition: border 0.3s ease, transform 0.3s ease;
+		background-color: $gray;
+
+		&:hover {
+			//border: 1px solid $main;
+			transform: scale(1.02);
+
+			.tools__box-text {
+				color: $main;
+			}
+		}
+
+		&-text {
+			font-size: 1.5rem;
+			color: $font-color;
+			cursor: pointer;
+			transition: color 0.3s ease;
+		}
+
+		&--clicked {
+			display: none;
+			border-radius: 8px;
+		}
+
+		&--active {
+			display: block;
+		}
+
+		&-input {
+			width: 100%;
+			margin: 0.5em 1em 0 0.5em;
+			padding: 0.9em 0em;
+			background: none;
+			border: none;
+			color: $font-color;
+			font-size: 1.7rem;
+
+			&::placeholder {
+				font-size: 1.7rem;
+				color: $font-color;
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		&-title {
+			font-size: 1.8rem;
+			margin-top: 0;
+			&::placeholder {
+				font-size: 1.8rem;
+				color: $font-color;
+			}
+		}
+
+		&-textarea {
+			margin-bottom: 1.2em;
+		}
+
+		.error-note {
+			margin-bottom: 1em;
+			color: tomato;
+			font-size: 1.6rem;
+		}
+
+		&-buttons {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&-button {
+			padding: 0.85em 2.2em;
+			margin: 0.2em 1.4em;
+			background-color: $darker-gray;
+			border: none;
+			border-radius: 10px;
+			color: $main;
+			cursor: pointer;
+			font-size: 1.5rem;
+			transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+
+			&:hover {
+				background-color: $main;
+				color: $bg-color;
+			}
+		}
+	}
+}
+
+@media (max-width: 470px) {
+	.tools__box {
+		&-buttons {
+			flex-direction: column;
+		}
+
+		&-button {
+			width: 100%;
+		}
+	}
+
+	.nav__title {
+		font-size: 4rem;
+	}
+}
+
+//notes
+.notes {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 8em;
+
+	.note {
+		position: relative;
+		width: 300px;
+		min-height: 200px;
+		margin-bottom: 2em;
+		border-radius: 8px;
+		background-color: $gray;
+		color: $font-color;
+		word-break: break-all;
+		transition: transform 0.3s ease;
+
+		@media (max-width: 320px) {
+			width: 250px;
+		}
+
+		&:hover {
+			transform: scale(1.02);
+		}
+
+		.delete-note {
+			display: none;
+		}
+
+		&:hover {
+			.delete-note {
+				display: block;
+				width: 17px;
+				height: 17px;
+				background-color: $main;
+				border-radius: 50%;
+				border: none;
+				position: absolute;
+				right: -8px;
+				top: -8px;
+				color: #000;
+				font-size: 1.5rem;
+				cursor: pointer;
+			}
+		}
+
+		.title-box {
+			text-align: center;
+			padding: 1.5em 2em;
+			//border-bottom: 1px solid $font-color;
+			width: 100%;
+
+			.note-title {
+				font-size: 2.4rem;
+				font-weight: normal;
+			}
+		}
+
+		.note-text {
+			padding: 1.5em 2em;
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@import 'medium';
+@import 'small';

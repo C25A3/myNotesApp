@@ -1,0 +1,33 @@
+@media (min-width: 576px) {
+	.nav {
+		&__search {
+			display: block;
+			width: 50%;
+			padding: 1.05em 3em;
+			margin: 0.5em 0.5em;
+		}
+		&__title {
+			display: block;
+		}
+
+		.icon {
+			display: none;
+		}
+	}
+
+	.tools {
+		&__box {
+			&-button {
+				width: 40%;
+			}
+		}
+	}
+
+    .notes {
+        flex-direction: row;
+
+        .note {
+            margin: 2em 4em;
+        }
+    }
+}

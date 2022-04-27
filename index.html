@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNotes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/75203d4314.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <nav class="nav">
+        <h1 class="nav__title nav__title--active">My notes</h1>
+        <input class="nav__search" type="text" placeholder="Szukaj...">
+        <img class="icon--active icon search-icon" src="./icons/search.svg" alt="">
+        <img class="icon close-search" src="./icons/x.svg" alt="">
+    </nav>
+    <hr>
+    <main>
+        <div class="wrapper">
+            <section class="tools">
+                <div class="tools__box tools__box--active">
+                    <p class="tools__box-text">Utwórz notatkę...</p>
+                </div>
+                <div class="tools__box tools__box--clicked">
+                    <input class="tools__box-title tools__box-input" type="text" placeholder="Tytuł..." value="">
+                    <input class="tools__box-textarea tools__box-input" type="text" placeholder="Tekst..." value="">
+                    <p class="error-note"></p>
+                    <div class="tools__box-buttons">
+                        <button class="tools__box-button tools__button-accept">Utwórz</button>
+                        <button class="tools__box-button tools__button-close">Zamknij</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="notes">
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
