@@ -14,6 +14,24 @@ const toolsError = document.querySelector('.error-note')
 const notes = document.querySelector('.notes')
 let noteText, noteTitle, deleteNoteBtn, note
 const noteBgs = ['rgb(13, 73, 184)', '#c2950f', 'rgb(98, 12, 148)']
+const notesTitlesList = []
+
+
+//KOD 
+const searchItem = e => {
+	const text = e.target.value.toLowerCase()
+	console.log(text + 'input');
+	console.log(notesTitlesList)
+
+	notesTitlesList.forEach(noteTitle => {
+		console.log(noteTitle);
+		if (noteTitle.textContent.toLowerCase().indexOf(text) !== -1) {
+			note.style.display = 'block'
+		} else {
+			note.style.display = 'none'
+		}
+	})
+}
 
 const showSearch = () => {
 	search.classList.toggle('nav__search--active')
@@ -46,6 +64,7 @@ const addNote = () => {
 		titleInput.value = ''
 		textInput.value = ''
 		closeTools()
+		notesTitlesList.push(noteTitle)
 	} else {
 		toolsError.textContent = 'Podaj treść!'
 	}
@@ -72,15 +91,14 @@ const createNote = () => {
 	note.append(deleteNoteBtn, titleBox, hr, noteText)
 }
 
-const checkClick = (e) => {
-	console.log(e.target);
+const checkClick = e => {
 	if (e.target.matches('.fa-xmark')) {
 		e.target.closest('div').remove()
 	}
 }
 
-
-document.addEventListener('click', checkClick)
+search.addEventListener('keyup', searchItem)
+notes.addEventListener('click', checkClick)
 createNoteBtn.addEventListener('click', addNote)
 closeToolsBtn.addEventListener('click', closeTools)
 tools.addEventListener('click', showTools)

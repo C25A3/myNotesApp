@@ -26,6 +26,14 @@ hr {
   height: 1px;
 }
 
+.hide {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
