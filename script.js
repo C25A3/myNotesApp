@@ -15,8 +15,6 @@ const notes = document.querySelector('.notes')
 let noteText, noteTitle, deleteNoteBtn, note
 const noteBgs = ['rgb(13, 73, 184)', '#c2950f', 'rgb(98, 12, 148)']
 
-
-
 const showSearch = () => {
 	search.classList.toggle('nav__search--active')
 	pageHeading.classList.toggle('nav__title--active')
@@ -38,6 +36,7 @@ const closeTools = () => {
 
 const addNote = () => {
 	if (titleInput.value !== '' && textInput.value !== '') {
+		note = document.createElement('div')
 		createNote()
 		noteTitle.textContent = titleInput.value
 		noteText.textContent = textInput.value
@@ -53,13 +52,11 @@ const addNote = () => {
 }
 
 const chooseNoteBg = () => {
-	let x = Math.floor(Math.random() * 3) 
+	let x = Math.floor(Math.random() * 3)
 	note.style.backgroundColor = noteBgs[x]
-
 }
 
 const createNote = () => {
-	note = document.createElement('div')
 	note.classList.add('note')
 	deleteNoteBtn = document.createElement('button')
 	deleteNoteBtn.classList.add('delete-note')
@@ -73,17 +70,17 @@ const createNote = () => {
 	noteText = document.createElement('p')
 	noteText.classList.add('note-text')
 	note.append(deleteNoteBtn, titleBox, hr, noteText)
-	
-	const deleteNote = () => {
-		note.remove()
+}
+
+const checkClick = (e) => {
+	console.log(e.target);
+	if (e.target.matches('.fa-xmark')) {
+		e.target.closest('div').remove()
 	}
-	deleteNoteBtn.addEventListener('click', deleteNote)
 }
 
 
-
-
-
+document.addEventListener('click', checkClick)
 createNoteBtn.addEventListener('click', addNote)
 closeToolsBtn.addEventListener('click', closeTools)
 tools.addEventListener('click', showTools)
