@@ -26,14 +26,6 @@ hr {
   height: 1px;
 }
 
-.hide {
-  display: none;
-}
-
-.display {
-  display: block;
-}
-
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -347,6 +339,11 @@ hr {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 8em;
+}
+
+.notes__info {
+  color: #e8eaed;
+  font-size: 2rem;
 }
 
 .notes .note {

@@ -15,20 +15,18 @@ const notes = document.querySelector('.notes')
 let noteText, noteTitle, deleteNoteBtn, note
 const noteBgs = ['rgb(13, 73, 184)', '#c2950f', 'rgb(98, 12, 148)']
 const notesTitlesList = []
+const notesList = []
+const notesInfo = document.querySelector('.notes__info')
 
-
-//KOD 
+//KOD
 const searchItem = e => {
 	const text = e.target.value.toLowerCase()
-	console.log(text + 'input');
-	console.log(notesTitlesList)
-
+	console.log(note)
 	notesTitlesList.forEach(noteTitle => {
-		console.log(noteTitle);
 		if (noteTitle.textContent.toLowerCase().indexOf(text) !== -1) {
-			note.style.display = 'block'
+			noteTitle.closest('div.note').style.display = 'block'
 		} else {
-			note.style.display = 'none'
+			noteTitle.closest('div.note').style.display = 'none'
 		}
 	})
 }
@@ -65,6 +63,8 @@ const addNote = () => {
 		textInput.value = ''
 		closeTools()
 		notesTitlesList.push(noteTitle)
+		notesList.push(note)
+		notesInfo.textContent = ''
 	} else {
 		toolsError.textContent = 'Podaj treść!'
 	}
@@ -94,6 +94,10 @@ const createNote = () => {
 const checkClick = e => {
 	if (e.target.matches('.fa-xmark')) {
 		e.target.closest('div').remove()
+		notesList.pop()
+		if (notesList.length == 0) {
+			notesInfo.textContent = 'Brak notatek...'
+		}
 	}
 }
 

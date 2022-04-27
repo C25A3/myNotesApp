@@ -239,6 +239,10 @@ hr {
 	flex-wrap: wrap;
 	margin-top: 8em;
 
+	&__info {
+		color: $font-color;
+		font-size: 2rem;
+	}
 	.note {
 		position: relative;
 		width: 300px;
