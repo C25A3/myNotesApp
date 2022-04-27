@@ -245,7 +245,6 @@ hr {
 		min-height: 200px;
 		margin-bottom: 2em;
 		border-radius: 8px;
-		background-color: $gray;
 		color: $font-color;
 		word-break: break-all;
 		transition: transform 0.3s ease;
@@ -267,7 +266,7 @@ hr {
 				display: block;
 				width: 17px;
 				height: 17px;
-				background-color: $main;
+				background-color: #e8eaed;
 				border-radius: 50%;
 				border: none;
 				position: absolute;

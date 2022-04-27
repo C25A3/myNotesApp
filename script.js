@@ -13,6 +13,7 @@ const textInput = document.querySelector('.tools__box-textarea')
 const toolsError = document.querySelector('.error-note')
 const notes = document.querySelector('.notes')
 let noteText, noteTitle, deleteNoteBtn, note
+const noteBgs = ['rgb(13, 73, 184)', '#c2950f', 'rgb(98, 12, 148)']
 
 
 
@@ -40,6 +41,7 @@ const addNote = () => {
 		createNote()
 		noteTitle.textContent = titleInput.value
 		noteText.textContent = textInput.value
+		chooseNoteBg()
 		notes.append(note)
 		toolsError.textContent = ''
 		titleInput.value = ''
@@ -50,7 +52,11 @@ const addNote = () => {
 	}
 }
 
+const chooseNoteBg = () => {
+	let x = Math.floor(Math.random() * 3) 
+	note.style.backgroundColor = noteBgs[x]
 
+}
 
 const createNote = () => {
 	note = document.createElement('div')
@@ -73,6 +79,7 @@ const createNote = () => {
 	}
 	deleteNoteBtn.addEventListener('click', deleteNote)
 }
+
 
 
 
